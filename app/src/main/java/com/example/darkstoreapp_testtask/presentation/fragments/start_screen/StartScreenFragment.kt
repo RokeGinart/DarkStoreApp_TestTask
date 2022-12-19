@@ -42,6 +42,12 @@ class StartScreenFragment : Fragment(), OnDatePickerListener {
     private val calendar = Calendar.getInstance()
     private var isSelectedDateCorrect = true
 
+    private val currentDateModel = DateModel(
+        year = calendar.get(Calendar.YEAR),
+        month = calendar.get(Calendar.MONTH),
+        day = calendar.get(Calendar.DAY_OF_MONTH)
+    )
+
     private lateinit var toCurrencyAdapter: ArrayAdapter<ExchangeRateUiModel>
 
     override fun onAttach(context: Context) {
@@ -66,13 +72,7 @@ class StartScreenFragment : Fragment(), OnDatePickerListener {
 
         observe()
 
-        viewModel.setCurrentDate(
-            DateModel(
-                year = calendar.get(Calendar.YEAR),
-                month = calendar.get(Calendar.MONTH),
-                day = calendar.get(Calendar.DAY_OF_MONTH)
-            )
-        )
+        viewModel.setCurrentDate(currentDateModel)
 
         viewModel.checkDate(dateModel)
     }
@@ -186,7 +186,9 @@ class StartScreenFragment : Fragment(), OnDatePickerListener {
         isSelectedDateCorrect = true
         dateModel = date
         viewModel.checkDate(date)
+
         binding.selectedDateTv.text = date.toStringVersion()
+        binding.selectedDateTitleTv.isVisible = true
     }
 
     private fun showMessage(text: String) = with(binding) {

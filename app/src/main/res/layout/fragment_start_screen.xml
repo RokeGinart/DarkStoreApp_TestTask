@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="@string/currency_convertor"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_20"
+        android:textSize="@dimen/text_size_30"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,8 @@
         android:id="@+id/calendar_iv"
         android:layout_width="@dimen/dimens_30"
         android:layout_height="@dimen/dimens_30"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_40"
         android:clickable="true"
         android:contentDescription="@string/app_name"
         android:focusable="true"
@@ -48,40 +49,37 @@
     <TextView
         android:id="@+id/selected_date_title_tv"
         android:layout_width="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimens_20"
         android:layout_marginBottom="@dimen/dimens_60"
         android:text="@string/selected_date"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/amount_et"
-        app:layout_constraintEnd_toStartOf="@+id/selected_date_tv"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginEnd="@dimen/dimens_5"
+        app:layout_constraintTop_toTopOf="@+id/selected_date_tv"
+        app:layout_constraintEnd_toStartOf="@+id/selected_date_tv"/>
 
     <TextView
         android:id="@+id/selected_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimens_10"
+        android:layout_marginEnd="@dimen/dimens_10"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18"
-        app:layout_constraintBottom_toBottomOf="@+id/selected_date_title_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/selected_date_title_tv"
-        app:layout_constraintTop_toTopOf="@+id/selected_date_title_tv"
-        tools:text="20.12.1997" />
+        app:layout_constraintBottom_toBottomOf="@+id/calendar_iv"
+        app:layout_constraintEnd_toStartOf="@id/calendar_iv"
+        app:layout_constraintTop_toTopOf="@+id/calendar_iv"
+        tools:text = "01.01.2020"/>
 
     <EditText
         android:id="@+id/amount_et"
         android:layout_width="@dimen/dimens_150"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimens_20"
-        android:layout_marginTop="@dimen/dimens_40"
         android:layout_marginEnd="@dimen/dimens_10"
-        android:layout_marginBottom="@dimen/dimens_20"
+        android:layout_marginBottom="@dimen/dimens_10"
         android:hint="@string/enter_amount"
         android:inputType="numberDecimal"
         android:singleLine="true"
@@ -114,12 +112,12 @@
         android:text="@string/convert_to"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18"
+        android:layout_marginBottom="@dimen/dimens_60"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/total_result_tv"
         app:layout_constraintEnd_toStartOf="@+id/to_currency_spinner"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/to_currency_spinner"
@@ -137,13 +135,16 @@
         android:layout_width="0dp"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginStart="@dimen/dimens_20"
+        android:layout_marginEnd="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_40"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_30"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/to_currency_spinner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Total: 20000$" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -152,7 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimens_20"
-        android:layout_marginTop="@dimen/dimens_40"
+        android:layout_marginTop="@dimen/dimens_60"
         android:layout_marginEnd="@dimen/dimens_20"
         android:text="@string/convert"
         app:layout_constraintTop_toBottomOf="@+id/total_result_tv" />
