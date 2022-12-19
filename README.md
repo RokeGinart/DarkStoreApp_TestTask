@@ -2,14 +2,14 @@
 
 Used technologies: 
 
-Kotlin
-MVVM
-Dagger2
-Room
-Retrofit
-Coroutines
-Kotlin Flow
-Clean architecture
+Kotlin,
+MVVM,
+Dagger2,
+Room,
+Retrofit,
+Coroutines,
+Kotlin Flow,
+Clean architecture.
 
 Usage:
 1. When you enter the application, you will see a dialog with a date selection.
