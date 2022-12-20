@@ -81,12 +81,13 @@ class StartScreenViewModel @Inject constructor(
 
     fun convertValue(userAmount : String, id: Long, selectedCurrency :ExchangeRateUiModel){
         viewModelScope.launch {
-            val total = userAmount.toDouble() * selectedCurrency.amount
+            val total = (userAmount.toDouble() / selectedCurrency.units) * selectedCurrency.amount
             val totalInStringFormat = String.format("%.2f", total)
-            totalAmount.emit("$totalInStringFormat ${selectedCurrency.currencyName}")
+            totalAmount.emit(totalInStringFormat)
 
             setExchangeHistoryItemDBUseCase.execute(ExchangeHistoryItemEntity(
                 id = id,
+                units = selectedCurrency.units,
                 date = selectedDate,
                 toCurrency = selectedCurrency.currencyName,
                 exchangeRate = selectedCurrency.amount,
@@ -100,6 +101,7 @@ class StartScreenViewModel @Inject constructor(
         ExchangeRateUiModel(
             date = item.StartDate,
             amount = item.Amount,
+            units = item.Units,
             currencyName = item.CurrencyCodeL
         )
 

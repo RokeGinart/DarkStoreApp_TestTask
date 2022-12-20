@@ -24,8 +24,8 @@
         android:id="@+id/calendar_iv"
         android:layout_width="@dimen/dimens_30"
         android:layout_height="@dimen/dimens_30"
-        android:layout_marginEnd="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_40"
+        android:layout_marginEnd="@dimen/dimens_20"
         android:clickable="true"
         android:contentDescription="@string/app_name"
         android:focusable="true"
@@ -49,17 +49,17 @@
     <TextView
         android:id="@+id/selected_date_title_tv"
         android:layout_width="wrap_content"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimens_5"
         android:layout_marginBottom="@dimen/dimens_60"
         android:text="@string/selected_date"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18"
         android:textStyle="bold"
-        android:layout_marginEnd="@dimen/dimens_5"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/selected_date_tv"
         app:layout_constraintTop_toTopOf="@+id/selected_date_tv"
-        app:layout_constraintEnd_toStartOf="@+id/selected_date_tv"/>
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/selected_date_tv"
@@ -71,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/calendar_iv"
         app:layout_constraintEnd_toStartOf="@id/calendar_iv"
         app:layout_constraintTop_toTopOf="@+id/calendar_iv"
-        tools:text = "01.01.2020"/>
+        tools:text="01.01.2020" />
 
     <EditText
         android:id="@+id/amount_et"
@@ -86,19 +86,16 @@
         android:textColor="@color/black"
         android:theme="@style/CustomEditText"
         app:layout_constraintBottom_toTopOf="@+id/convert_to_tv"
-        app:layout_constraintEnd_toStartOf="@+id/currency_tv"
+        app:layout_constraintEnd_toStartOf="@+id/to_currency_spinner"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/currency_tv"
+    <Spinner
+        android:id="@+id/to_currency_spinner"
+        style="@style/CustomSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dimens_20"
-        android:text="@string/uah"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_size_18"
-        android:textStyle="bold"
+        android:layout_marginStart="@dimen/dimens_5"
         app:layout_constraintBottom_toBottomOf="@+id/amount_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/amount_et"
@@ -109,42 +106,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimens_20"
+        android:layout_marginBottom="@dimen/dimens_60"
         android:text="@string/convert_to"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18"
-        android:layout_marginBottom="@dimen/dimens_60"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/total_result_tv"
-        app:layout_constraintEnd_toStartOf="@+id/to_currency_spinner"
+        app:layout_constraintEnd_toStartOf="@+id/currency_tv"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/to_currency_spinner"
-        style="@style/CustomSpinner"
+    <TextView
+        android:id="@+id/currency_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimens_10"
+        android:layout_marginStart="@dimen/dimens_5"
+        android:layout_marginEnd="@dimen/dimens_20"
+        android:text="@string/uah"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18"
         app:layout_constraintBottom_toBottomOf="@+id/convert_to_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/convert_to_tv"
         app:layout_constraintTop_toTopOf="@+id/convert_to_tv" />
 
+
     <TextView
         android:id="@+id/total_result_tv"
         android:layout_width="0dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimens_20"
-        android:layout_marginEnd="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_40"
+        android:layout_marginEnd="@dimen/dimens_20"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_30"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Total: 20000$" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -162,11 +163,12 @@
         android:id="@+id/message_im"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimens_20"
+        android:layout_marginStart="@dimen/dimens_20"
+        android:layout_marginEnd="@dimen/dimens_20"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_convert"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

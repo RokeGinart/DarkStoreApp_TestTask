@@ -25,7 +25,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryItemViewHolder
             parent,
             false
         )
-       return HistoryItemViewHolder(view)
+        return HistoryItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HistoryItemViewHolder, position: Int) {
@@ -40,17 +40,21 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryItemViewHolder
 
         fun bind(item: ExchangeHistoryItemEntity) {
             with(binding) {
-               dateTv.text = item.date
-               exchangeRateTv.text = root.context.getString(
-                    R.string.exchange_rate_value,
-                    "${String.format("%.2f", item.exchangeRate)} ${item.toCurrency}"
-                )
-                userAmountTv.text = root.context.getString(
+                dateTv.text = item.date
+
+                val exchangeRate = "${item.units} ${item.toCurrency} = ${root.context.getString(
+                        R.string.uah_amount,
+                        String.format("%.2f", item.exchangeRate)
+                    )
+                }"
+
+                exchangeRateTv.text = exchangeRate
+                val userAmount = "${item.fromSum} ${item.toCurrency}"
+                userAmountTv.text = userAmount
+                resultAmountTv.text = root.context.getString(
                     R.string.uah_amount,
-                    item.fromSum
+                    item.totalSum
                 )
-                val total = "${item.totalSum} ${item.toCurrency}"
-                resultAmountTv.text = total
             }
         }
     }

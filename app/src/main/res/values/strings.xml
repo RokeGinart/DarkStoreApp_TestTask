@@ -6,10 +6,9 @@
     <string name="selected_date">Selected date:</string>
     <string name="enter_amount">Enter amount</string>
     <string name="uah">UAH</string>
-    <string name="total_result">Total: %1$s</string>
+    <string name="total_result">Total: %1$s UAH</string>
     <string name="date_of_exchange_rate">Date of exchange rate:</string>
     <string name="exchange_rate">Exchange rate:</string>
-    <string name="exchange_rate_value">1 UAH = %1$s</string>
     <string name="uah_amount">%1$s UAH</string>
     <string name="no_data">There is not history yet</string>
     <string name="enter_amount_error">You should enter amount</string>

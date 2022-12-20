@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class ExchangeHistoryItemEntity(
     @PrimaryKey
     val id: Long,
+    val units: Int,
     val date: String,
     val toCurrency: String,
     val exchangeRate: Double,
